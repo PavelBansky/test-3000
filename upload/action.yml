@@ -1,7 +1,7 @@
 name: 'Upload_3000'
 description: 'Upload codeql database to Codeql Central'
 inputs:
-  user_mame:  # id of input
+  user_name:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
