@@ -1,0 +1,7 @@
+Loaded Semmle CoreCLR tracer
+Tracer successfully initialized
+Instance=8, RuntimeType=Desktop Version=4.0.30319.0
+Command line: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Not tracing this command
+Added hooks for {a3c70a64-7d41-4a94-a3f6fd47d9259997}
+No method hooks attached, so detaching tracer.
