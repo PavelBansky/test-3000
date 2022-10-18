@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "Build typescript code"
+		},
+		{
+			"type": "npm",
+			"script": "initdev",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: initdev",
+			"detail": "Initializes the developer environment"
+		}	
+	]
+}
