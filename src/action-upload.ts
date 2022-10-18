@@ -1,5 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import * as fse from "fs-extra";
+import * as path from "path";
 import { env } from 'process';
 
 try {
@@ -15,6 +17,8 @@ try {
   core.info("GITHUB_SHA="+ env["GITHUB_SHA"]);
   core.info("GITHUB_EVENT_NAME="+ env["GITHUB_EVENT_NAME"]);
   core.info("RUNNER_OS="+ env["RUNNER_OS"]);
+  core.info("RUNNER_TEMP="+ env["RUNNER_TEMP"]);
+
   core.endGroup();
 
   const time = (new Date()).toTimeString();
@@ -34,6 +38,18 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   core.info(`The event payload: ${payload}`);
   core.endGroup();
+
+  core.startGroup('Databases to upload');
+  const folder = path.join(env["RUNNER_TEMP"] ?? "", "codeql_databases");
+	let files = fse.readdirSync(folder);
+	for(const file of files) {
+		const stat = fse.statSync(path.join(folder, file));		
+		if (stat.isFile()) {	
+      core.info(file);
+		}
+	}
+  core.endGroup();
+
 } catch (error) {
     if (error instanceof Error)
       core.setFailed(error.message);
